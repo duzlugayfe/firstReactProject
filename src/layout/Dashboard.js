@@ -20,8 +20,9 @@ export default function Anasayfa() {
             <Grid.Column width={12}>
               <Routes>
                 <Route path="/" element={<ProductList />} />
+                <Route path="/home" element={<ProductList />} />
                 <Route path="/products" element={<ProductList />} />
-                <Route path="/products/:id" element={<ProductDetail />} />
+                <Route path="/products/:name" element={<ProductDetail />} />
                 <Route path="/cart" element={<CartDetail />} />
               </Routes>
             </Grid.Column>
