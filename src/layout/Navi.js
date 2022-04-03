@@ -1,4 +1,3 @@
-import { createBrowserHistory } from "history";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -28,7 +27,7 @@ export default function Navi() {
           <Menu.Item name="messages" />
 
           <Menu.Menu position="right">
-            {cartItems.lenght > 0 && <CartSummary />}
+            {cartItems.length > 0 && <CartSummary />}
             {isAuthenticated ? (
               <SignedIn signOut={handleSignOut} />
             ) : (
