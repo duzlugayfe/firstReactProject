@@ -1,20 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Button, Icon, Menu, Table } from "semantic-ui-react";
 import ProductService from "../services/productService";
 import { addToCart } from "../store/actions/cartActions";
 import { toast } from "react-toastify";
 
 export default function ProductList() {
+  let { id } = useParams();
   const dispatch = useDispatch();
   const [products, setProducts] = useState([]);
+
   useEffect(() => {
     let productService = new ProductService();
-    productService
-      .getProducts()
-      .then((result) => setProducts(result.data.data));
-  }, []);
+    if (!id) {
+      productService
+        .getProducts()
+        .then((result) => setProducts(result.data.data));
+    } else {
+      productService
+        .getBCategoryId(id)
+        .then((result) => setProducts(result.data.data));
+    }
+  }, [id]);
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
     toast.success(`${product.productName} sepete eklendi!`);

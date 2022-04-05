@@ -9,6 +9,7 @@ import ProductDetail from "../pages/ProductDetail";
 import CartDetail from "../pages/CartDetail";
 import { ToastContainer } from "react-toastify";
 import ProductAdd from "../pages/ProductAdd";
+
 export default function Anasayfa() {
   return (
     <div>
@@ -25,6 +26,7 @@ export default function Anasayfa() {
                 <Route path="/" element={<ProductList />} />
                 <Route path="/home" element={<ProductList />} />
                 <Route path="/home" element={<ProductList />} />
+                <Route path="/category/:id" element={<ProductList />} />
                 <Route path="/product/add" element={<ProductAdd />} />
                 <Route path="/products/:name" element={<ProductDetail />} />
                 <Route path="/cart" element={<CartDetail />} />
